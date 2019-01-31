@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>arrow copy</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-1-Copy-47" transform="translate(-892.000000, -29.000000)" fill-rule="nonzero" fill="#FFFFFF">
+            <g id="Header">
+                <g id="Group" transform="translate(450.000000, 29.000000)">
+                    <g id="arrow-copy" transform="translate(442.000000, 0.000000)">
+                        <path d="M0.673139872,12.999999 L9.64016181e-07,12.3047645 L5.83831466,6.49999904 L0.0142825533,0.722767569 L0.658858283,-9.64016181e-07 L6.84659486,6.14999293 C6.94275756,6.24046192 6.99797971,6.36626227 6.99988392,6.49999904 C7.00274024,6.63275244 6.95234059,6.75560272 6.85998632,6.85000514 L0.673139872,12.999999 Z" id="Fill-8"></path>
+                        <path d="M6.67313987,12.999999 L6.00000096,12.3047645 L11.8383147,6.49999904 L6.01428255,0.722767569 L6.65885828,-9.64016181e-07 L12.8465949,6.14999293 C12.9427576,6.24046192 12.9979797,6.36626227 12.9998839,6.49999904 C13.0027402,6.63275244 12.9523406,6.75560272 12.8599863,6.85000514 L6.67313987,12.999999 Z" id="Fill-8-Copy"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

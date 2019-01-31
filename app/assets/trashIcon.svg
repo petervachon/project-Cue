@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="7px" height="8px" viewBox="0 0 7 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-1-Copy-36" transform="translate(-194.000000, -56.000000)" fill="#FFFFFF">
+            <g id="Side-Panel">
+                <g id="trashcan_delete_16" transform="translate(194.000000, 56.000000)">
+                    <path d="M7,2 L7,3 L6,3 L6,8 L1,8 L1,3 L0,3 L0,2 L7,2 Z M6,0 L6,1 L1,1 L1,0 L6,0 Z M2,3 L2,7 L3,7 L3,3 L2,3 Z M4,3 L4,7 L5,7 L5,3 L4,3 Z" id="Shape"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

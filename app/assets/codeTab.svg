@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>code</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-1-Copy-51" transform="translate(-1410.000000, -131.000000)" fill-rule="nonzero" fill="#FFFFFF">
+            <g id="code" transform="translate(1410.000000, 131.000000)">
+                <path d="M0.673139872,11.999999 L9.64017091e-07,11.3047645 L3.83831466,7.49999904 L0.0142825533,3.72276757 L0.658858283,2.99999904 L4.84659486,7.14999293 C4.94275756,7.24046192 4.99797971,7.36626227 4.99988392,7.49999904 C5.00274024,7.63275244 4.95234059,7.75560272 4.85998632,7.85000514 L0.673139872,11.999999 Z" id="Fill-8" transform="translate(2.500000, 7.499999) scale(-1, 1) translate(-2.500000, -7.499999) "></path>
+                <path d="M11.6731399,11.999999 L11.000001,11.3047645 L14.8383147,7.49999904 L11.0142826,3.72276757 L11.6588583,2.99999904 L15.8465949,7.14999293 C15.9427576,7.24046192 15.9979797,7.36626227 15.9998839,7.49999904 C16.0027402,7.63275244 15.9523406,7.75560272 15.8599863,7.85000514 L11.6731399,11.999999 Z" id="Fill-8-Copy"></path>
+                <polygon id="Fill-8-Copy" transform="translate(8.000000, 7.500000) rotate(-30.000000) translate(-8.000000, -7.500000) " points="3.8660254 12.8349365 3.1160254 12.0849365 12.1339746 2.16506351 12.8839746 2.91506351"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

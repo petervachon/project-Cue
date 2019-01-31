@@ -1,0 +1,24 @@
+{
+  "name": "project-cue",
+  "version": "1.1.0",
+  "description": "Cue is an interface for converting and visualizing After Effects animations to HTML &amp; CSS",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/petervachon/project-Cue.git"
+  },
+  "author": "Peter Vachon",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/petervachon/project-Cue/issues"
+  },
+  "homepage": "https://github.com/petervachon/project-Cue#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.3",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.2"
+  }
+}
