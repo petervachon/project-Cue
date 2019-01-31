@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="6px" height="10px" viewBox="0 0 6 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Expand Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard-1-Copy-51" transform="translate(-914.000000, -109.000000)" fill-rule="nonzero" fill="#FFFFFF">
+            <g id="Side-Panel" transform="translate(898.000000, 96.000000)">
+                <g id="Rectangle-2-+-arrow-+-Boxit-Copy-4" transform="translate(16.000000, 0.000000)">
+                    <g id="Expand-Icon" transform="translate(3.000000, 18.000000) rotate(-90.000000) translate(-3.000000, -18.000000) translate(-2.000000, 15.000000)">
+                        <path d="M2.5,7.5 L2.5,-1.5 L7.34659583,2.6499939 C7.44275853,2.74046288 7.49798067,2.86626324 7.49988488,3 C7.5027412,3.1327534 7.45234156,3.25560368 7.35998728,3.3500061 L2.5,7.5 Z" id="Fill-8" transform="translate(5.000000, 3.000000) rotate(90.000000) translate(-5.000000, -3.000000) "></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

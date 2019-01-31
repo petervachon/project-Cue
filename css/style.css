@@ -1,0 +1,1373 @@
+body {
+  background-color: #252525; }
+
+.loadingCue {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #121212;
+  z-index: 99999; }
+
+.cueSupport {
+  position: fixed;
+  bottom: 0;
+  left: 45px;
+  width: 316px;
+  max-height: 46px;
+  min-height: auto;
+  height: auto;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  box-sizing: border-box;
+  font-family: "IBM Plex Sans", sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  background-color: #343334;
+  z-index: 9999;
+  transition: all 0.3s cubic-bezier(0.5, 0, 0.15, 1); }
+  .cueSupport.open {
+    max-height: 341px;
+    min-height: auto; }
+  .cueSupport .expandCollapse {
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 30px;
+    height: 30px;
+    background-image: url("../assets/expandCollapse.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: 50ms; }
+    .cueSupport .expandCollapse.open {
+      transform: rotate(90deg); }
+  .cueSupport h3 {
+    font-size: 12px;
+    margin-top: 16px;
+    font-weight: 400;
+    padding: 0; }
+  .cueSupport ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 22px; }
+    .cueSupport ul li.titleSupported {
+      color: #348CE7; }
+    .cueSupport ul li.upNext {
+      opacity: .5;
+      margin-top: 12px; }
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  background-color: #343334;
+  border-bottom: 1px solid #464646;
+  z-index: 999; }
+  header .titleWrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    max-width: 124px;
+    min-width: 124px;
+    width: 100%;
+    height: 72px;
+    background-color: #343334;
+    box-sizing: border-box;
+    text-align: center; }
+    header .titleWrapper .cueTitle {
+      display: inline-block;
+      margin: 0 auto;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 72px;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1); }
+      header .titleWrapper .cueTitle span {
+        display: none;
+        font-size: 12px;
+        font-weight: 400;
+        color: #fff;
+        opacity: .6; }
+  header .playAnimation {
+    position: relative;
+    top: -8px;
+    right: 110px;
+    float: right;
+    height: 32px;
+    width: auto;
+    padding-right: 14px;
+    box-sizing: border-box;
+    background-image: url("../assets/playIcon.svg");
+    background-position: center left 12px;
+    background-repeat: no-repeat;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 32px;
+    text-indent: 32px;
+    text-align: center;
+    color: #fff;
+    border-radius: 2px;
+    background-color: #272727;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    cursor: pointer; }
+    header .playAnimation:hover {
+      transition: all 75ms cubic-bezier(0.5, 0, 0.15, 1);
+      background-color: #348CE7; }
+  header .userWrapper {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 72px;
+    max-width: 150px;
+    min-width: 116px;
+    width: 100%;
+    border-left: 1px solid #464646;
+    background-color: #343334;
+    box-sizing: border-box; }
+    header .userWrapper .user {
+      width: 100%;
+      margin: 0 auto;
+      text-align: center; }
+      header .userWrapper .user .profilePic {
+        position: relative;
+        display: inline-block;
+        top: 18px;
+        left: 24px;
+        width: 36px;
+        height: 36px;
+        float: left;
+        border-radius: 100%;
+        overflow: hidden; }
+        header .userWrapper .user .profilePic img {
+          width: 100%; }
+      header .userWrapper .user .userName {
+        position: relative;
+        display: inline-block;
+        top: 16px;
+        left: 10px;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 13px;
+        color: #fff;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale; }
+      header .userWrapper .user button.sign-in,
+      header .userWrapper .user button.sign-out {
+        position: relative;
+        top: 12px;
+        right: 0;
+        height: 48px;
+        border: 0;
+        background-color: transparent;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        color: #fff;
+        z-index: 9999;
+        outline: none;
+        cursor: pointer; }
+        header .userWrapper .user button.sign-in:hover,
+        header .userWrapper .user button.sign-out:hover {
+          text-decoration: underline; }
+      header .userWrapper .user button.sign-out {
+        display: none; }
+  header .mgmtWrapper {
+    position: relative;
+    top: 0;
+    left: 320px;
+    float: left;
+    width: calc(100% - 336px);
+    min-width: 508px;
+    height: 100%;
+    padding-top: 29px;
+    box-sizing: border-box; }
+    header .mgmtWrapper .projectMgmt {
+      display: block;
+      float: left;
+      width: auto;
+      padding-right: 44px;
+      transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1); }
+      header .mgmtWrapper .projectMgmt .selectedProject {
+        position: relative;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        color: #fff;
+        opacity: .6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        cursor: pointer; }
+        header .mgmtWrapper .projectMgmt .selectedProject.multiples::after {
+          position: absolute;
+          content: '';
+          width: 24px;
+          height: 7px;
+          top: 4px;
+          background-image: url("../assets/dropdownArrow.svg");
+          background-repeat: no-repeat;
+          background-position: center; }
+      header .mgmtWrapper .projectMgmt ul.projects {
+        position: absolute;
+        top: 4px;
+        left: -8px;
+        display: none;
+        min-width: 182px;
+        height: auto;
+        width: auto;
+        background-color: #343334;
+        padding: 0;
+        box-shadow: 0px 2px 4px #181818;
+        z-index: 8;
+        font-family: "IBM Plex Sans", sans-serif; }
+        header .mgmtWrapper .projectMgmt ul.projects li {
+          position: relative;
+          float: none;
+          display: block;
+          padding: 9px 8px;
+          margin-left: 0px;
+          margin-right: 0px;
+          list-style: none;
+          font-size: 12px;
+          font-weight: 500;
+          color: #fff;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          cursor: pointer; }
+          header .mgmtWrapper .projectMgmt ul.projects li span.delete {
+            display: none;
+            position: absolute;
+            right: 4px;
+            top: 0px;
+            width: 22px;
+            height: 33px;
+            background-image: url("../assets/trashIcon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: .7; }
+            header .mgmtWrapper .projectMgmt ul.projects li span.delete:hover {
+              opacity: 1; }
+          header .mgmtWrapper .projectMgmt ul.projects li span.edit {
+            display: none;
+            position: absolute;
+            right: 26px;
+            top: 0px;
+            width: 22px;
+            height: 33px;
+            background-image: url("../assets/editIcon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: .7; }
+            header .mgmtWrapper .projectMgmt ul.projects li span.edit:hover {
+              opacity: 1; }
+          header .mgmtWrapper .projectMgmt ul.projects li:hover {
+            border: none;
+            background-color: #252525;
+            padding-bottom: 9px; }
+            header .mgmtWrapper .projectMgmt ul.projects li:hover span.delete {
+              display: block; }
+    header .mgmtWrapper .animationMgmt {
+      position: relative;
+      display: block;
+      min-width: 300px;
+      width: 100%;
+      max-width: calc(100% - 316px);
+      float: left;
+      box-sizing: border-box;
+      transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1); }
+      header .mgmtWrapper .animationMgmt ul {
+        float: left;
+        padding: 0;
+        padding-bottom: 6px;
+        margin: 0;
+        color: #fff;
+        list-style: none;
+        margin: 0;
+        z-index: 5; }
+        header .mgmtWrapper .animationMgmt ul li {
+          position: relative;
+          float: left;
+          margin-left: 12px;
+          margin-right: 12px;
+          padding-bottom: 4px;
+          font-family: "IBM Plex Sans", sans-serif;
+          font-size: 12px;
+          font-weight: 600;
+          color: #fff;
+          box-sizing: border-box;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+          cursor: pointer;
+          background: none; }
+          header .mgmtWrapper .animationMgmt ul li ul {
+            position: absolute;
+            top: -8px;
+            left: 0;
+            display: none;
+            min-width: 182px;
+            height: auto;
+            width: auto;
+            background-color: #272727;
+            padding-top: 0px;
+            padding-bottom: 0px;
+            box-shadow: 0px 2px 4px #181818;
+            transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1);
+            z-index: 8; }
+            header .mgmtWrapper .animationMgmt ul li ul li {
+              float: none;
+              display: block;
+              padding: 9px 8px;
+              margin-left: 0px;
+              margin-right: 0px;
+              font-weight: normal; }
+              header .mgmtWrapper .animationMgmt ul li ul li:hover {
+                border: none;
+                background-color: #323232;
+                padding-bottom: 9px; }
+            header .mgmtWrapper .animationMgmt ul li ul.open {
+              display: block;
+              opacity: 0;
+              animation-name: dropdownUI;
+              animation-duration: 150ms;
+              animation-fill-mode: forwards;
+              animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1); }
+
+@keyframes dropdownUI {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+          header .mgmtWrapper .animationMgmt ul li:first-child {
+            margin-left: 0px; }
+          header .mgmtWrapper .animationMgmt ul li span.delete {
+            display: none;
+            position: absolute;
+            right: -16px;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background-image: url("../assets/trashIcon.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: .7; }
+            header .mgmtWrapper .animationMgmt ul li span.delete:hover {
+              opacity: 1; }
+          header .mgmtWrapper .animationMgmt ul li:hover {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #348CE7; }
+            header .mgmtWrapper .animationMgmt ul li:hover span.delete {
+              display: block; }
+          header .mgmtWrapper .animationMgmt ul li.active {
+            border-bottom: 2px solid #348CE7; }
+            header .mgmtWrapper .animationMgmt ul li.active:hover {
+              padding-bottom: 4px;
+              border-bottom: 2px solid #348CE7; }
+          header .mgmtWrapper .animationMgmt ul li span.moreIcon {
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            width: 32px;
+            height: 32px;
+            background-image: url("../assets/menuExpandIcon.svg");
+            background-position: center;
+            background-repeat: no-repeat; }
+    header .mgmtWrapper .uploadJSON {
+      position: absolute;
+      top: 21px;
+      right: 0px;
+      width: auto;
+      height: 32px;
+      padding-right: 12px;
+      box-sizing: border-box;
+      background-image: url("../assets/uploadIcon.svg");
+      background-position: center left 12px;
+      background-repeat: no-repeat;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: #fff;
+      font-size: 12px;
+      line-height: 32px;
+      text-indent: 36px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 100ms cubic-bezier(0.5, 0, 0.15, 1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+      header .mgmtWrapper .uploadJSON:hover {
+        background-color: #444; }
+    header .mgmtWrapper .shareLink {
+      position: absolute;
+      top: 21px;
+      right: 74px;
+      height: 32px;
+      width: auto;
+      padding-right: 12px;
+      box-sizing: border-box;
+      background-image: url("../assets/shareIcon.svg");
+      background-position: center left 12px;
+      background-repeat: no-repeat;
+      font-family: "IBM Plex Sans", sans-serif;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 600;
+      line-height: 32px;
+      text-indent: 36px;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: all 100ms cubic-bezier(0.5, 0, 0.15, 1);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+      header .mgmtWrapper .shareLink:hover {
+        background-color: #444; }
+      header .mgmtWrapper .shareLink .linkCopied {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -64px;
+        padding-left: 12px;
+        padding-right: 12px;
+        opacity: 0;
+        background-color: #348CE7;
+        color: #fff;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        text-indent: 0px;
+        border-radius: 2px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        z-index: 999;
+        transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1); }
+        header .mgmtWrapper .shareLink .linkCopied.out {
+          opacity: 1;
+          left: -70px; }
+    header .mgmtWrapper .manage {
+      display: none;
+      position: fixed;
+      top: 72px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      font-family: "IBM Plex Sans", sans-serif;
+      z-index: 99; }
+      header .mgmtWrapper .manage .formWrapper {
+        position: fixed;
+        left: calc(50% - 300px);
+        top: calc(50% - 75px);
+        width: 600px;
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        z-index: 999; }
+        header .mgmtWrapper .manage .formWrapper .fileToUpload {
+          display: none;
+          margin-top: -50px;
+          margin-bottom: 56px;
+          font-size: 24px;
+          color: #fff;
+          font-weight: 400; }
+        header .mgmtWrapper .manage .formWrapper progress {
+          display: none;
+          position: fixed;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          background-color: #999;
+          -webkit-appearance: none; }
+          header .mgmtWrapper .manage .formWrapper progress::-webkit-progress-bar {
+            background: #555; }
+          header .mgmtWrapper .manage .formWrapper progress::-webkit-progress-value {
+            background: #348CE7; }
+        header .mgmtWrapper .manage .formWrapper .message {
+          display: block;
+          font-size: 14px;
+          margin-bottom: 16px; }
+          header .mgmtWrapper .manage .formWrapper .message label {
+            text-decoration: underline;
+            cursor: pointer; }
+            header .mgmtWrapper .manage .formWrapper .message label:hover {
+              color: #348CE7; }
+        header .mgmtWrapper .manage .formWrapper .uploadIcon {
+          display: block;
+          margin: 0 auto; }
+        header .mgmtWrapper .manage .formWrapper .messageInstruction {
+          display: block;
+          margin-top: 16px;
+          font-size: 12px;
+          color: #999; }
+      header .mgmtWrapper .manage input#selectFiles {
+        position: fixed;
+        left: 0;
+        top: 72px;
+        width: 100%;
+        height: calc(100% - 72px);
+        background-color: transparent;
+        outline: none;
+        opacity: 0; }
+      header .mgmtWrapper .manage input#selectImages {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 72px;
+        width: 100%;
+        height: calc(100% - 72px);
+        background-color: transparent;
+        outline: none;
+        opacity: 0; }
+      header .mgmtWrapper .manage .pickProject {
+        position: relative;
+        top: -64px;
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 500; }
+      header .mgmtWrapper .manage .currentProject {
+        margin-left: 16px;
+        margin-right: 16px; }
+      header .mgmtWrapper .manage #createProject {
+        display: inline-block;
+        margin: 8px auto;
+        padding-bottom: 8px;
+        outline: none;
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 1px solid #555;
+        font-size: 14px;
+        color: #fff;
+        font-weight: 200; }
+        header .mgmtWrapper .manage #createProject:focus {
+          border-bottom: 1px solid #348CE7; }
+      header .mgmtWrapper .manage .fileToUpload {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 12px;
+        padding-bottom: 8px;
+        font-weight: 600;
+        color: #000; }
+        header .mgmtWrapper .manage .fileToUpload .removeFile {
+          display: inline-block;
+          margin-left: 10px;
+          font-size: 10px;
+          font-weight: 600;
+          color: red;
+          cursor: pointer; }
+          header .mgmtWrapper .manage .fileToUpload .removeFile:hover {
+            text-decoration: underline; }
+      header .mgmtWrapper .manage .fileToProject {
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 12px;
+        padding-bottom: 8px;
+        color: #000; }
+      header .mgmtWrapper .manage .skipToAnimation {
+        display: none;
+        margin-top: 24px;
+        padding: 8px 16px 8px 16px;
+        border: none;
+        background-color: #348CE7;
+        font-family: "IBM Plex Sans", sans-serif;
+        color: #fff;
+        font-size: 12px;
+        font-weight: 400;
+        outline: none; }
+        header .mgmtWrapper .manage .skipToAnimation:hover {
+          background-color: #0064FF; }
+  header.close {
+    left: -480px; }
+    header.close .projectMgmt,
+    header.close .animationMgmt {
+      left: -480px; }
+
+.animations {
+  position: fixed;
+  left: 16px; }
+  .animations .elements-reset > div {
+    cursor: pointer; }
+
+.panelWrapper {
+  position: fixed !important;
+  top: 72px !important;
+  right: 45px !important;
+  max-width: 480px;
+  width: 100%;
+  min-width: 300px;
+  min-height: calc(100% - 72px);
+  padding-top: 16px;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 68px;
+  box-sizing: border-box;
+  z-index: 10; }
+
+.cuePanel {
+  position: absolute;
+  top: 0;
+  right: 0 !important;
+  width: 100%;
+  height: 100%;
+  padding-top: 16px;
+  padding-bottom: 68px;
+  box-sizing: border-box;
+  min-width: 200px;
+  background-color: #343334;
+  /* End Layer */ }
+  .cuePanel #drag {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    bottom: 0;
+    width: 8px;
+    cursor: col-resize; }
+  .cuePanel .deleteAnimationAlert {
+    display: none;
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 100%;
+    padding: 20px 16px 20px 16px;
+    box-sizing: border-box;
+    background-color: #E8505E;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    z-index: 10;
+    opacity: 0;
+    animation-name: alertUI;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1); }
+
+@keyframes alertUI {
+  0% {
+    opacity: 0;
+    bottom: 0px; }
+  100% {
+    opacity: 1;
+    bottom: 40px; } }
+    .cuePanel .deleteAnimationAlert span {
+      position: relative;
+      float: right;
+      font-weight: 600;
+      margin-left: 8px;
+      padding-left: 8px;
+      padding-right: 8px; }
+    .cuePanel .deleteAnimationAlert span:hover {
+      text-decoration: underline;
+      cursor: pointer; }
+  .cuePanel .animationMeta {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 14px 16px 14px 16px;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    background-color: #343334;
+    z-index: 9; }
+    .cuePanel .animationMeta::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: -40px;
+      width: 100%;
+      height: 40px;
+      background-color: #343334;
+      background: linear-gradient(0deg, #343334 25%, rgba(52, 51, 52, 0.239933) 100%); }
+    .cuePanel .animationMeta span.canvasSize {
+      color: #A6A5A6; }
+    .cuePanel .animationMeta span.deleteAni {
+      position: absolute;
+      right: 8px;
+      bottom: 8px;
+      color: #fff;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: 2px;
+      -webkit-font-smoothing: antialiased; }
+      .cuePanel .animationMeta span.deleteAni img {
+        position: relative;
+        top: 2px;
+        margin-right: 6px; }
+      .cuePanel .animationMeta span.deleteAni:hover {
+        background-color: #252525;
+        cursor: pointer; }
+  .cuePanel .navigation {
+    position: absolute;
+    right: -45px;
+    top: 0;
+    width: 45px;
+    height: 100%;
+    border-left: 1px solid #464646;
+    box-sizing: border-box;
+    background-color: #343334; }
+    .cuePanel .navigation .timelineTab {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 45px;
+      height: 45px;
+      background-image: url("../assets/timelineTab.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: border-box;
+      transition: all 100ms; }
+      .cuePanel .navigation .timelineTab:hover {
+        cursor: pointer;
+        background-color: #272727; }
+      .cuePanel .navigation .timelineTab.active {
+        background-color: #348CE7; }
+    .cuePanel .navigation .codeTab {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      width: 45px;
+      height: 45px;
+      background-image: url("../assets/codeTab.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: border-box;
+      transition: all 100ms; }
+      .cuePanel .navigation .codeTab:hover {
+        cursor: pointer;
+        background-color: #272727; }
+      .cuePanel .navigation .codeTab.active {
+        background-color: #348CE7; }
+    .cuePanel .navigation .shortcuts {
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 45px;
+      height: 45px;
+      background-image: url("../assets/shortcutsIcon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      box-sizing: border-box;
+      transition: all 100ms; }
+      .cuePanel .navigation .shortcuts:hover {
+        cursor: pointer;
+        background-color: #444; }
+  .cuePanel .supportMessaging {
+    position: absolute;
+    bottom: -60px;
+    opacity: 0;
+    width: 100%;
+    padding: 16px;
+    box-sizing: border-box;
+    font-family: "IBM Plex Sans", sans-serif;
+    font-size: 12px;
+    color: #fff;
+    background-color: #FF3C5C;
+    transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1);
+    z-index: 999; }
+    .cuePanel .supportMessaging.visible {
+      opacity: 1;
+      bottom: 0; }
+    .cuePanel .supportMessaging span.dismiss {
+      font-weight: 600;
+      cursor: pointer; }
+      .cuePanel .supportMessaging span.dismiss:hover {
+        text-decoration: underline; }
+  .cuePanel .layerOutput {
+    height: 100%;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-sizing: border-box;
+    overflow: scroll; }
+  .cuePanel .layer {
+    display: block;
+    position: relative;
+    width: 100%;
+    min-height: 48px;
+    margin-bottom: 16px;
+    opacity: 0;
+    box-sizing: border-box;
+    transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1);
+    animation-name: loadLayers;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1);
+    /* End Transform */ }
+    .cuePanel .layer:nth-child(1) {
+      webkit-animation-delay: 35ms;
+      moz-animation-delay: 35ms;
+      animation-delay: 35ms; }
+    .cuePanel .layer:nth-child(2) {
+      webkit-animation-delay: 70ms;
+      moz-animation-delay: 70ms;
+      animation-delay: 70ms; }
+    .cuePanel .layer:nth-child(3) {
+      webkit-animation-delay: 105ms;
+      moz-animation-delay: 105ms;
+      animation-delay: 105ms; }
+    .cuePanel .layer:nth-child(4) {
+      webkit-animation-delay: 140ms;
+      moz-animation-delay: 140ms;
+      animation-delay: 140ms; }
+    .cuePanel .layer:nth-child(5) {
+      webkit-animation-delay: 175ms;
+      moz-animation-delay: 175ms;
+      animation-delay: 175ms; }
+    .cuePanel .layer:nth-child(6) {
+      webkit-animation-delay: 210ms;
+      moz-animation-delay: 210ms;
+      animation-delay: 210ms; }
+    .cuePanel .layer:nth-child(7) {
+      webkit-animation-delay: 245ms;
+      moz-animation-delay: 245ms;
+      animation-delay: 245ms; }
+    .cuePanel .layer:nth-child(8) {
+      webkit-animation-delay: 280ms;
+      moz-animation-delay: 280ms;
+      animation-delay: 280ms; }
+    .cuePanel .layer:nth-child(9) {
+      webkit-animation-delay: 315ms;
+      moz-animation-delay: 315ms;
+      animation-delay: 315ms; }
+    .cuePanel .layer:nth-child(10) {
+      webkit-animation-delay: 350ms;
+      moz-animation-delay: 350ms;
+      animation-delay: 350ms; }
+    .cuePanel .layer:nth-child(11) {
+      webkit-animation-delay: 385ms;
+      moz-animation-delay: 385ms;
+      animation-delay: 385ms; }
+    .cuePanel .layer:nth-child(12) {
+      webkit-animation-delay: 420ms;
+      moz-animation-delay: 420ms;
+      animation-delay: 420ms; }
+    .cuePanel .layer:nth-child(13) {
+      webkit-animation-delay: 455ms;
+      moz-animation-delay: 455ms;
+      animation-delay: 455ms; }
+    .cuePanel .layer:nth-child(14) {
+      webkit-animation-delay: 490ms;
+      moz-animation-delay: 490ms;
+      animation-delay: 490ms; }
+    .cuePanel .layer:nth-child(15) {
+      webkit-animation-delay: 525ms;
+      moz-animation-delay: 525ms;
+      animation-delay: 525ms; }
+    .cuePanel .layer:nth-child(16) {
+      webkit-animation-delay: 560ms;
+      moz-animation-delay: 560ms;
+      animation-delay: 560ms; }
+    .cuePanel .layer:nth-child(17) {
+      webkit-animation-delay: 595ms;
+      moz-animation-delay: 595ms;
+      animation-delay: 595ms; }
+    .cuePanel .layer:nth-child(18) {
+      webkit-animation-delay: 630ms;
+      moz-animation-delay: 630ms;
+      animation-delay: 630ms; }
+    .cuePanel .layer:nth-child(19) {
+      webkit-animation-delay: 665ms;
+      moz-animation-delay: 665ms;
+      animation-delay: 665ms; }
+    .cuePanel .layer:nth-child(20) {
+      webkit-animation-delay: 700ms;
+      moz-animation-delay: 700ms;
+      animation-delay: 700ms; }
+
+@keyframes loadLayers {
+  0% {
+    opacity: 0;
+    margin-top: -12px; }
+  80% {
+    margin-top: 0; }
+  100% {
+    opacity: 1;
+    margin-top: 0; } }
+    .cuePanel .layer:hover, .cuePanel .layer.hovered {
+      background-color: #252525; }
+      .cuePanel .layer:hover span.layerHide, .cuePanel .layer.hovered span.layerHide {
+        opacity: .5; }
+    .cuePanel .layer.expand {
+      min-height: 100px;
+      max-height: 100%;
+      background-color: #252525; }
+    .cuePanel .layer span.layerTapTarget {
+      position: absolute;
+      width: 100%;
+      height: 48px;
+      background-color: transparent;
+      z-index: 9;
+      cursor: pointer; }
+    .cuePanel .layer span.layerName {
+      position: absolute;
+      top: 10px;
+      left: 28px;
+      width: calc(100% - 82px);
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+    .cuePanel .layer span.layerHide {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 48px;
+      height: 48px;
+      cursor: pointer;
+      background-image: url("../assets/showIcon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(180deg);
+      z-index: 999;
+      opacity: 0; }
+      .cuePanel .layer span.layerHide:hover {
+        opacity: 1; }
+      .cuePanel .layer span.layerHide.hidden {
+        opacity: .5;
+        background-image: url("../assets/hiddenIcon.svg"); }
+        .cuePanel .layer span.layerHide.hidden:hover {
+          opacity: 1; }
+      .cuePanel .layer span.layerHide.collapse {
+        transform: rotate(0deg); }
+    .cuePanel .layer span.trigger {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 24px;
+      height: 38px;
+      cursor: pointer;
+      background-image: url("../assets/expandCollapse.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      transform: rotate(0deg);
+      z-index: 999;
+      transition: all 150ms cubic-bezier(0.5, 0, 0.15, 1); }
+      .cuePanel .layer span.trigger.collapse {
+        transform: rotate(90deg); }
+    .cuePanel .layer span.noMotion {
+      position: relative;
+      top: 26px;
+      left: 28px;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 10px;
+      color: #fff;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale; }
+    .cuePanel .layer .transform {
+      position: relative;
+      left: 32px;
+      width: calc(100% - 32px);
+      padding-top: 35px;
+      transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1);
+      /* End timeline */
+      /* End Expand */ }
+      .cuePanel .layer .transform .wrapTimeline {
+        display: block;
+        padding-bottom: 0px;
+        transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1); }
+      .cuePanel .layer .transform .timeline {
+        position: absolute;
+        width: calc(100% - 84px);
+        min-height: 2px;
+        z-index: 2; }
+        .cuePanel .layer .transform .timeline::before {
+          position: absolute;
+          top: -3px;
+          left: 0px;
+          content: '';
+          width: 4px;
+          height: 8px;
+          background-image: url("../assets/timelineCap.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          transform: rotate(180deg); }
+        .cuePanel .layer .transform .timeline::after {
+          position: absolute;
+          top: -3px;
+          right: 0px;
+          content: '';
+          width: 4px;
+          height: 8px;
+          background-image: url("../assets/timelineCap.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          transform: rotate(0deg); }
+        .cuePanel .layer .transform .timeline .keyframe {
+          position: absolute;
+          left: 100%;
+          top: -3px;
+          width: 8px;
+          height: 8px;
+          margin-left: -4px;
+          background-image: url("../assets/keyframe.svg");
+          background-repeat: no-repeat;
+          background-position: center;
+          z-index: 1; }
+          .cuePanel .layer .transform .timeline .keyframe span.timeUI {
+            display: none; }
+            .cuePanel .layer .transform .timeline .keyframe span.timeUI.show {
+              display: block;
+              position: absolute;
+              top: -24px;
+              left: -16px;
+              width: 40px;
+              padding-top: 3px;
+              padding-bottom: 3px;
+              background-color: #5A5A5A;
+              font-family: "IBM Plex Sans", sans-serif;
+              font-size: 9px;
+              text-align: center;
+              color: #fff;
+              letter-spacing: .5px;
+              border-radius: 2px;
+              opacity: 0;
+              animation-name: timeUI;
+              animation-duration: 200ms;
+              animation-delay: 100ms;
+              animation-fill-mode: forwards;
+              animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1); }
+
+@keyframes timeUI {
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+    top: -12px; }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    top: -22px; } }
+            .cuePanel .layer .transform .timeline .keyframe span.timeUI::after {
+              position: absolute;
+              content: '';
+              bottom: -3px;
+              left: 50%;
+              margin-left: -3px;
+              width: 6px;
+              height: 6px;
+              background-color: #5A5A5A;
+              transform: rotate(45deg); }
+        .cuePanel .layer .transform .timeline span.transformProperty {
+          display: none;
+          position: absolute;
+          top: -5px;
+          right: -84px;
+          width: 70px;
+          font-family: "IBM Plex Sans", sans-serif;
+          font-size: 11px;
+          font-weight: 500;
+          color: #fff;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale; }
+        .cuePanel .layer .transform .timeline .timelineHighlight {
+          position: absolute;
+          min-height: 2px;
+          background-color: #0064FF; }
+          .cuePanel .layer .transform .timeline .timelineHighlight:empty {
+            display: none; }
+      .cuePanel .layer .transform .defaultTimeline {
+        position: absolute;
+        width: calc(100% - 84px);
+        height: 2px;
+        background-color: #000;
+        z-index: 0; }
+      .cuePanel .layer .transform .infoUI {
+        display: none; }
+      .cuePanel .layer .transform.expand {
+        padding-top: 60px;
+        /* End timeline */ }
+        .cuePanel .layer .transform.expand.open {
+          padding-top: 72px;
+          padding-bottom: 60px;
+          background-color: transparent; }
+        .cuePanel .layer .transform.expand .defaultTimeline {
+          display: none; }
+        .cuePanel .layer .transform.expand .wrapTimeline {
+          display: block;
+          padding-bottom: 40px; }
+          .cuePanel .layer .transform.expand .wrapTimeline.open {
+            padding-bottom: 104px; }
+        .cuePanel .layer .transform.expand .timeline {
+          min-height: 4px;
+          background-color: #000; }
+          .cuePanel .layer .transform.expand .timeline::before {
+            top: -1.75px; }
+          .cuePanel .layer .transform.expand .timeline::after {
+            top: -1.75px; }
+          .cuePanel .layer .transform.expand .timeline .keyframe {
+            top: -1.75px; }
+            .cuePanel .layer .transform.expand .timeline .keyframe.active {
+              background-image: url("../assets/activeKeyframe.svg"); }
+          .cuePanel .layer .transform.expand .timeline .timelineHighlight {
+            min-height: 4px;
+            margin-top: -6px;
+            border-top: 6px solid #252525;
+            border-bottom: 6px solid #252525;
+            transition: all 50ms cubic-bezier(0.5, 0, 0.15, 1); }
+            .cuePanel .layer .transform.expand .timeline .timelineHighlight:hover {
+              background-color: #348CE7;
+              cursor: pointer; }
+            .cuePanel .layer .transform.expand .timeline .timelineHighlight.active {
+              background-color: #fff;
+              /* End info UI */ }
+              .cuePanel .layer .transform.expand .timeline .timelineHighlight.active .infoUI {
+                position: absolute;
+                display: block;
+                top: 20px;
+                left: 0;
+                min-width: 360px;
+                width: 100%;
+                height: 30px;
+                font-family: "IBM Plex Sans", sans-serif;
+                font-size: 11px;
+                font-weight: 600;
+                color: #fff;
+                opacity: 0;
+                cursor: default;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                animation-name: infoUI;
+                animation-duration: 300ms;
+                animation-delay: 100ms;
+                animation-fill-mode: forwards;
+                animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1); }
+
+@keyframes infoUI {
+  0% {
+    opacity: 0;
+    top: 12px; }
+  100% {
+    opacity: 1;
+    top: 20px; } }
+              .cuePanel .layer .transform.expand .timeline .timelineHighlight.active .metaConstants {
+                width: 100%;
+                padding-top: 6px;
+                margin-top: 10px;
+                box-sizing: border-box;
+                border-top: 1px solid #535A5A; }
+              .cuePanel .layer .transform.expand .timeline .timelineHighlight.active span.keyframeLeftData,
+              .cuePanel .layer .transform.expand .timeline .timelineHighlight.active span.keyframeRightData {
+                display: inline-block;
+                max-width: 100%;
+                padding: 8px 12px;
+                background-color: #5A5A5A;
+                border-radius: 2px; }
+                .cuePanel .layer .transform.expand .timeline .timelineHighlight.active span.keyframeLeftData span.svgPath,
+                .cuePanel .layer .transform.expand .timeline .timelineHighlight.active span.keyframeRightData span.svgPath {
+                  position: relative;
+                  top: 2px;
+                  display: inline-block;
+                  width: 45%;
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis; }
+              .cuePanel .layer .transform.expand .timeline .timelineHighlight.active span.positionToIcon {
+                height: 8px;
+                margin-left: 8px;
+                margin-right: 8px;
+                display: inline-block;
+                background-repeat: no-repeat;
+                background-position: center center; }
+              .cuePanel .layer .transform.expand .timeline .timelineHighlight.active span.bezier {
+                float: right;
+                font-weight: 900; }
+        .cuePanel .layer .transform.expand span.transformProperty {
+          display: block;
+          opacity: 0;
+          animation-name: fadeIn;
+          animation-delay: 125ms;
+          animation-duration: 300ms;
+          animation-fill-mode: forwards; }
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    margin-left: 8px; }
+  100% {
+    opacity: 1;
+    margin-left: 0px; } }
+  .cuePanel .markupOutput {
+    display: none;
+    position: relative;
+    height: 100%;
+    top: 40px;
+    box-sizing: border-box;
+    padding: 32px 16px 32px 16px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 20px;
+    color: #f2f2f2;
+    overflow: scroll; }
+    .cuePanel .markupOutput .tabs {
+      position: relative;
+      left: 0;
+      top: -36px; }
+    .cuePanel .markupOutput .tabs > div {
+      display: inline-block;
+      padding: 8px 14px;
+      float: left;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      cursor: pointer;
+      transition: all 100ms cubic-bezier(0.5, 0, 0.15, 1); }
+      .cuePanel .markupOutput .tabs > div:hover {
+        border-bottom: 2px solid #348CE7; }
+      .cuePanel .markupOutput .tabs > div.active {
+        border-bottom: 4px solid #348CE7; }
+    .cuePanel .markupOutput .copy {
+      position: absolute;
+      top: 8px;
+      right: 40px;
+      width: 32px;
+      height: 32px;
+      border-radius: 2px;
+      background-image: url("../assets/copyIcon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      transition: all 100ms cubic-bezier(0.5, 0, 0.15, 1); }
+      .cuePanel .markupOutput .copy:hover {
+        background-color: #444; }
+      .cuePanel .markupOutput .copy .codeCopied {
+        position: absolute;
+        top: 0;
+        right: 32px;
+        padding: 6px 12px;
+        opacity: 0;
+        background-color: #348CE7;
+        color: #fff;
+        font-family: "IBM Plex Sans", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        border-radius: 2px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: all 300ms cubic-bezier(0.5, 0, 0.15, 1); }
+        .cuePanel .markupOutput .copy .codeCopied.out {
+          opacity: 1;
+          right: 36px; }
+    .cuePanel .markupOutput .download {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 32px;
+      height: 32px;
+      border-radius: 2px;
+      background-image: url("../assets/downloadIcon.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      cursor: pointer;
+      transition: all 100ms cubic-bezier(0.5, 0, 0.15, 1); }
+      .cuePanel .markupOutput .download:hover {
+        background-color: #444; }
+    .cuePanel .markupOutput .cssOutput {
+      width: calc(100% - 16px);
+      max-height: 0;
+      height: auto;
+      clear: left;
+      opacity: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      animation-name: cssIn;
+      animation-duration: 2000ms;
+      animation-delay: 100ms;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1); }
+
+@keyframes cssIn {
+  0% {
+    max-height: 0; }
+  100% {
+    max-height: 500000px; } }
+      .cuePanel .markupOutput .cssOutput span.name {
+        color: #81D912; }
+      .cuePanel .markupOutput .cssOutput span.property {
+        color: #67D9DF;
+        padding-left: 16px; }
+      .cuePanel .markupOutput .cssOutput span.value {
+        color: #67D9DF; }
+      .cuePanel .markupOutput .cssOutput span.unit {
+        color: #E8505E; }
+      .cuePanel .markupOutput .cssOutput span.integer {
+        color: #9E90FC; }
+      .cuePanel .markupOutput .cssOutput span.keyframe {
+        clear: left;
+        color: #E8505E; }
+    .cuePanel .markupOutput .htmlOutput {
+      display: none;
+      max-height: 100px;
+      height: auto;
+      clear: left;
+      white-space: nowrap;
+      opacity: 1;
+      animation-name: htmlIn;
+      animation-duration: 200ms;
+      animation-delay: 100ms;
+      animation-fill-mode: forwards;
+      animation-timing-function: cubic-bezier(0.5, 0, 0.15, 1); }
+      .cuePanel .markupOutput .htmlOutput span.className {
+        color: #81D912; }
+
+@keyframes htmlIn {
+  0% {
+    max-height: 0px; }
+  100% {
+    max-height: 50000px; } }
+      .cuePanel .markupOutput .htmlOutput span.htmlElement {
+        color: #E8505E; }
+      .cuePanel .markupOutput .htmlOutput span.property {
+        color: #81D912; }
+      .cuePanel .markupOutput .htmlOutput span.indent1 {
+        padding-left: 16px; }
+      .cuePanel .markupOutput .htmlOutput span.indent2 {
+        padding-left: 32px; }
+      .cuePanel .markupOutput .htmlOutput span.indent3 {
+        padding-left: 48px; }
+      .cuePanel .markupOutput .htmlOutput values {
+        color: #67D9DF; }
+
+.selectedElement,
+.elements-reset > div:hover,
+.elements-reset > svg:hover {
+  border: 2px solid #000;
+  box-sizing: border-box; }
+
+/* Project Settings Popup */
+.projectSettings {
+  display: none;
+  position: fixed;
+  left: calc(50% - 250px);
+  top: 200px;
+  width: 500px;
+  min-height: 250px;
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #000;
+  font-family: "IBM Plex Sans", sans-serif;
+  z-index: 99999; }
+
+.overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: .75;
+  z-index: 9999; }

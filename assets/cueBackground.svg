@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1366px" height="768px" viewBox="0 0 1366 768" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 43.1 (39012) - http://www.bohemiancoding.com/sketch -->
+    <title>Rectangle 80</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <pattern id="pattern-1" width="12" height="12" x="-12" y="-12" patternUnits="userSpaceOnUse">
+            <use xlink:href="#image-2" transform="scale(0.5,0.5)"></use>
+        </pattern>
+        <image id="image-2" width="24" height="24" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAA1teXP8meAAAAFFJREFUSA1j/P//PwOJgCQNTCQaTrLyUQsIBtloEI0GEcEQIKiA5qmIBegEksoWoHpGgs5GUkBzH4xagBTa2JmjQYQ9XJBER4MIKTCwM2keRAB4gQUuz5tOBwAAAABJRU5ErkJggg=="></image>
+    </defs>
+    <g id="V2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.05">
+        <g id="Artboard-1-Copy-33" fill="url(#pattern-1)">
+            <rect id="Rectangle-80" x="0" y="0" width="1366" height="768"></rect>
+        </g>
+    </g>
+</svg>

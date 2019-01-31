@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project Cue v1.1.0</title>
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600" rel="stylesheet">
+	<!--build:js js/relative.min.js -->
+	<script src="js/relative.js"></script>
+	<!-- endbuild -->
+	<!--build:css css/style.min.css-->
+	<link rel="stylesheet" href="css/style.css">
+	<!--endbuild-->
+</head>
+<body>
+	<div class="loadingCue"></div>
+	<div class="cueSupport">
+		<div class="expandCollapse"></div>
+		<h3>AE animations supported</h3>
+		<ul>
+			<li class="titleSupported">Supported</li>
+			<li>Solids</li>
+			<li>Masks<sup>Beta</sup></li>
+			<li>TrkMats<sup>Beta</sup></li>
+			<li>Ease and Wizz (Easing plugin)</li>
+			<li class="upNext">Up Next</li>
+			<li>Shapes</li>
+			<li>Images</li>
+			<li class="upNext">Future</li>
+			<li>Text</li>
+			<li>Precomps</li>
+		</ul>
+	</div>
+	<header>
+		<div class="titleWrapper">
+			<div class="cueTitle">
+				Project Cue
+			</div>
+		</div>
+		<div class="mgmtWrapper">
+			<div class="uploadJSON" for="selectFiles" title="Upload Animation">
+				Upload
+			</div>
+			
+			<div class="manage" id="uploadForm">
+			<div class="formWrapper">
+				<div class="fileToUpload"></div>
+				<progress value="0" max="100" id="uploadProgress">0%</progress>
+				<input type="file" id="selectImages" multiple="true" value="Import" accept="image/*" />
+				<div class="errors"></div>
+			<span class='message'>
+				<label for="selectFiles">Choose a file to upload</label>
+			</span>
+
+			<div class='uploadIcon'>
+				<img src='assets/upload_32.svg' alt='upload JSON' /></div>
+				<div class='messageInstruction'>JSON from After Effects > <a href="https://aescripts.com/bodymovin/" style="color: white; text-decoration: underline" target="_blank">Bodymovin</a> <span style="font-weight: normal; letter-spacing: .2px; line-height: 18px;"><br /><br />Note: Animation data is stored using your browsers local storage. <br />You can only host one animation at a time.</span>
+				</div>
+				<button class="skipToAnimation">Skip to animation</button>
+			</div>
+				
+				<button class="submitBtn" disabled="true" hidden>Submit</button>
+
+				<textarea id="result" hidden></textarea>
+				<label for="selectFiles" class="coverUpload"><input type="file" id="selectFiles" value="Import" accept=".json"/></label>
+			</div>
+			<div class="playAnimation">Play</div>
+		</div>
+
+	</header>
+	<div class="panelWrapper">
+		<div class="cuePanel">
+			<div id="drag" class="ui-resizable-w"></div>
+				<div class="navigation">
+					<div class="timelineTab active" title="Timeline"></div>
+					<div class="codeTab" title="Code"></div>
+					<div class="shortcuts" title="Shortcuts"></div>
+				</div>
+				<div class="deleteAnimationAlert">
+					Are you sure you want to delete this animation?
+					<span class="yesDelete">Delete</span>
+					<span class="noDelete">No</span>
+				</div>
+				<div class="animationMeta">
+					<span class="canvasSize"></span>
+					<span class="deleteAni"><img src="assets/deleteIcon_16.svg" />Delete</span>
+				</div>
+				<div class="supportMessaging">
+					Unfortunetly 
+					<span class="layerTypeText"></span> 
+					<span class="layerTypePrecomps"></span>
+					<span class="layerTypeImages"></span>
+					<span class="layerTypeShapes"></span>
+					are not supported quite yet... 
+					<span class="dismiss">Dismiss Alert</span>
+				</div>
+				<div class="layerOutput"></div>
+				<div class="markupOutput">
+					<div class="copy" title="Copy">
+						<div class="codeCopied">Copied!</div>
+					</div>
+					<div class="download" title="Download"></div>
+					<div class="tabs">
+						<div class="showCSS active">CSS</div>
+						<div class="showHTML">HTML</div>
+					</div>
+					<div class="htmlOutput" id="htmlCopy"></div>
+					<div class="cssOutput" id="cssCopy"></div>
+				</div>
+		</div>
+	</div>
+	<div class="animations">
+		<div class="canvas">
+			<div class="elements-reset">
+			</div>
+		</div> <!-- Canvas for Animation -->
+	</div>
+	<div class="projectSettings">
+	</div>
+	<div class="overlay"></div>
+</body>
+</html>
