@@ -9,11 +9,11 @@ $( document ).ready(function() {
 	getAnimation = JSON.parse(getAnimation);
 	if (getAnimation != null) {
 		$('#fileMgmt > li').removeClass('active')
-		$('#fileMgmt').append('<li data-attribute="yourAnimation">Your Animation</li>')
-		$('.yourAnimation').addClass('active');
+		$('#fileMgmt').append('<li class="yourAnimation" data-attribute="yourAnimation">Your Animation</li>')
 		renderAnimation(getAnimation);
 		addAnimationListener()
 		$('.deleteAni').show();
+		$('.yourAnimation').addClass('active');
 	}
 	else {
 		$('.deleteAni').hide();
