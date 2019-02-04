@@ -45,10 +45,12 @@
 			</div>
 			<div class="animationMgmt">
 				<ul id="fileMgmt">
-					<li class="orientation active">Introduction</li>
-					<li class="simpleSolid" data-attribute="simpleSolid">Simple solid</li>
+					<li class="orientation active">Simple solid</li>
+					<!-- <li class="simpleSolid" data-attribute="simpleSolid">Simple solid</li> -->
 					<li class="rockets" data-attribute="rockets">Rockets</li>
-					<li class="footerAlert" data-attribute="footerAlert">Footer alert</li>
+					<li class="footerAlert" data-attribute="footerAlert">Alert</li>
+					<li class="navOpen" data-attribute="navOpen">Panel open</li>
+					<li class="navClose" data-attribute="navClose">Panel close</li>
 				</ul>
 			</div>
 			<div class="uploadJSON" for="selectFiles" title="Upload Animation">
@@ -56,6 +58,7 @@
 			</div>
 			
 			<div class="manage" id="uploadForm">
+				<div class="closeForm"><img src="assets/closeIcon.svg" alt="close" /></div>
 			<div class="formWrapper">
 				<div class="fileToUpload"></div>
 				<progress value="0" max="100" id="uploadProgress">0%</progress>
@@ -67,7 +70,7 @@
 
 			<div class='uploadIcon'>
 				<img src='assets/upload_32.svg' alt='upload JSON' /></div>
-				<div class='messageInstruction'>JSON from After Effects > <a href="https://aescripts.com/bodymovin/" style="color: white; text-decoration: underline" target="_blank">Bodymovin</a> <span style="font-weight: normal; letter-spacing: .2px; line-height: 18px;"><br /><br />Note: Animation data is stored using your browsers local storage. <br />You can only host one animation at a time.</span>
+				<div class='messageInstruction'>JSON from After Effects > <a href="https://aescripts.com/bodymovin/" style="color: white; text-decoration: underline" target="_blank">Bodymovin</a> <span style="font-weight: normal; letter-spacing: .2px; line-height: 18px;"><br /><br />Note: Animation data is stored using your browsers session storage. <br />Any animation data you upload will be cleared once you close the browser.<br />You can only host one animation at a time.</span>
 				</div>
 				<button class="skipToAnimation">Skip to animation</button>
 			</div>

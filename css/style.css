@@ -464,6 +464,16 @@ header {
       height: 100%;
       font-family: "IBM Plex Sans", sans-serif;
       z-index: 99; }
+      header .mgmtWrapper .manage .closeForm {
+        position: absolute;
+        right: 24px;
+        top: 24px;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
+        z-index: 999; }
+        header .mgmtWrapper .manage .closeForm:hover {
+          opacity: .75; }
       header .mgmtWrapper .manage .formWrapper {
         position: fixed;
         left: calc(50% - 300px);
