@@ -577,6 +577,20 @@ header {
 		font-family: $font_stack;
 		z-index: 99;
 
+		.closeForm {
+			position: absolute;
+			right: 24px;
+			top: 24px;
+			width: 32px;
+			height: 32px;
+			cursor: pointer;
+			z-index: 999;
+
+			&:hover {
+				opacity: .75;
+			}
+		}
+
 		.formWrapper {
 			position: fixed;
 			left: calc(50% - 300px);
