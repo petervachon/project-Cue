@@ -2583,7 +2583,7 @@ $( document ).ready(function() {
 
 	// Download file
   	function downloadInnerHtml(htmloutput, hOut, mimeType) {
-  		var animationName = 'projectAni'
+  		var animationName = 'projectCue'
 	    var cssOut = $('.cssOutput').text();
 	    var myHTML = $('.elements-reset').html();
 	    var fullHtml = "<!doctype html><html><head><title>" + animationName + "</title><style>" + cssOut + "</style></head><body>" + myHTML + "</body></html>"
