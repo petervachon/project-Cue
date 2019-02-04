@@ -210,8 +210,7 @@ header {
         color: #fff;
         opacity: .6;
         -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        cursor: pointer; }
+        -moz-osx-font-smoothing: grayscale; }
         header .mgmtWrapper .projectMgmt .selectedProject.multiples::after {
           position: absolute;
           content: '';
